@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/13 22:31:08 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/15 00:29:13 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,15 @@ void error_call()
 	exit(EXIT_FAILURE);
 }
 
-int	count_elem(char **s, char c)
+int	count_elem(char **s)
 {
 	size_t	count;
-	int		in_word;
-	int	i;
-	int	j;
 
-	i = 0;
 	count = 0;
-	in_word = 0;
-	while (s[i])
+	while (*s)
 	{
-		j = 0;
-		while (s[i][j])
-		{
-			if (s[i][j] != c && !in_word)
-			{
-				in_word = 1;
-				count++;
-			}
-			else if (s[i][j] == c)
-			{
-				in_word = 0;
-			}
-			j++;
-		}
-		i++;
+		count++;
+		s++;
 	}
 	return (count);
 }
@@ -54,8 +36,8 @@ void check_error(char **argv)
 	int i;
 	int j;
 	long temp;
-	i = 1;
-	j = 0;
+	int flag;
+	i = 0;
 
 	//整数外・int外
 	while (argv[i])
@@ -63,9 +45,16 @@ void check_error(char **argv)
 		temp = ft_atoi(argv[i]);
 		if (INT_MAX < temp || INT_MIN > temp)
 			error_call();
+		flag = (0 > temp);
 		// 整数外
+		j = 0;
 		while (argv[i][j])
 		{
+			if (flag)
+			{
+				flag = 0;
+				j++;
+			}
 			if (!(ft_isdigit(argv[i][j])))
 			{
 				error_call();
@@ -88,30 +77,37 @@ int main(int argc, char **argv)
 	int	*stackb;
 	char **list;
 	int elem_num;
-
-	//error handling
-	//要素数を数える
-	if (argc < 3)
+	
+	list = NULL;
+	//引数が0,1
+	if (argc == 1)
 		exit(EXIT_FAILURE);
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		list = ft_split(argv[1], ' ');
 		check_error(list);
-		elem_num = count_elem(list, ' ');
+		elem_num = count_elem(list);
+		stacka = generate_stack(list, elem_num);
 	}
 	else
 	{
+		argv++;
 		check_error(argv);
-		elem_num = count_elem(argv, ' ');
+		elem_num = count_elem(argv);
+		stacka = generate_stack(argv, elem_num);
 	}
-	if (elem_num < 2)
-		exit(EXIT_FAILURE);
-	stacka = generate_stack(argv, elem_num);
-	stackb = generate_stack(argv, 0);
+	stackb = generate_stack(list, 0);
 	for (int i = 0; i < elem_num; i++)
-	{
-		printf("%d ", stacka[i]);
+		printf("%d\n", stacka[i]);
+	// 各文字列を解放
+	for (int i = 0; list[i] != NULL; i++) {
+	    free(list[i]);
 	}
+
+	// 文字列の配列自体を解放
+	free(list);
+	free(stacka);
+	free(stackb);
 //	push_swap(stacka, stackb);
 //	exit(EXIT_FAILURE);
 }

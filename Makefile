@@ -12,7 +12,7 @@ all: $(PUSH_SWAP)
 
 $(PUSH_SWAP): $(PUSH_SOURCE)
 	make -C $(PRINTF)
-	$(CC) $(CFLAGS) -o $@ $^ -L$(PRINTF) -lftprintf
+	$(CC) $(CFLAGS) -fsanitize=address -o $@ $^ -L$(PRINTF) -lftprintf
 clean: 
 	make -C $(PRINTF) clean
 	rm -f *.o
