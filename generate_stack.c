@@ -45,18 +45,18 @@ int	check_sorted(int *stack, int elem_num)
 int	*generate_stack(char **argv, int elem_num)
 {
 	// 重複・ソートチェック
-	int	*stack;
+	strhdr	*stack;
 	int	temp;
 	int	i;
 	i = 0;
-	stack = (int *)malloc(sizeof(int) * elem_num);
+	stack = (strhdr *)malloc(sizeof(strhdr) * elem_num);
 	if (!stack)
 		error_call();
 	while (i < elem_num)
 	{
 		temp = ft_atoi(argv[i]);
-		if (check_duplicate(stack, temp, i))
-			stack[i] = temp;
+		if (check_duplicate(stack->stack, temp, i))
+			stack->stack[i] = temp;
 		else
 		{
 			free(stack);
@@ -64,7 +64,7 @@ int	*generate_stack(char **argv, int elem_num)
 		}
 		i++;
 	}
-	if (!(check_sorted(stack, elem_num)))
+	if (!(check_sorted(stack-stack, elem_num)))
 	{
 
 		free(stack);

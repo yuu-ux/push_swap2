@@ -2,6 +2,12 @@
 # define H_PUSH_SWAP_H
 # include "./printf/ft_printf.h"
 
+typedef struct {
+    int *data;
+    int cap;
+    int len;
+} strhdr;
+
 int	check_duplicate(int *stack, int elem, int elem_num);
 int	check_sorted(int *stack, int elem_num);
 int	*generate_stack(char **argv, int elem_num);

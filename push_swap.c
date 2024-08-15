@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/15 00:29:13 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/15 14:00:49 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,41 +73,46 @@ void check_error(char **argv)
 
 int main(int argc, char **argv)
 {
-	int	*stacka;
-	int	*stackb;
+	strhdr	stacka;
+	strhdr	stackb;
 	char **list;
-	int elem_num;
 	
 	list = NULL;
+
 	//引数が0,1
 	if (argc == 1)
+	{
 		exit(EXIT_FAILURE);
+	}
 	if (argc == 2)
 	{
 		list = ft_split(argv[1], ' ');
 		check_error(list);
-		elem_num = count_elem(list);
-		stacka = generate_stack(list, elem_num);
+		stacka.len = count_elem(list);
+		stacka.data = generate_stack(list, stacka.len);
 	}
 	else
 	{
 		argv++;
 		check_error(argv);
-		elem_num = count_elem(argv);
-		stacka = generate_stack(argv, elem_num);
-	}
-	stackb = generate_stack(list, 0);
-	for (int i = 0; i < elem_num; i++)
-		printf("%d\n", stacka[i]);
-	// 各文字列を解放
-	for (int i = 0; list[i] != NULL; i++) {
-	    free(list[i]);
+		stacka.len = count_elem(argv);
+		stacka.data = generate_stack(argv, stacka.len);
 	}
 
-	// 文字列の配列自体を解放
-	free(list);
-	free(stacka);
-	free(stackb);
+    for (int i = 0; i < stacka.len; i++)
+        printf("%d\n", stacka.data[i]);
+
+    // メモリの解放
+    if (list) {
+        for (int i = 0; list[i] != NULL; i++) {
+            free(list[i]);
+        }
+        free(list);
+    }
+    // free(stacka);
+    // free(stackb);
+    // free(stacka);
+    // free(stackb);
 //	push_swap(stacka, stackb);
 //	exit(EXIT_FAILURE);
 }
