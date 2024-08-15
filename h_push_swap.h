@@ -8,10 +8,12 @@ typedef struct {
     int len;
 } strhdr;
 
-int	check_duplicate(int *stack, int elem, int elem_num);
-int	check_sorted(int *stack, int elem_num);
-int	*generate_stack(char **argv, int elem_num);
+int	check_duplicate(strhdr *stack, int elem, int elem_num);
+int	check_sorted(strhdr *stack, int elem_num);
+void	generate_stack(strhdr *stack, char **argv, int elem_num);
 void error_call();
 int	count_elem(char **s);
 void check_error(char **argv);
+void	operate_sa(strhdr stacka);
+void	operate_ra(strhdr stacka);
 # endif
