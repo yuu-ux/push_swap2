@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/15 22:01:53 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/25 18:27:05 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ void check_error(char **argv)
 
 void push_swap(strhdr stacka, strhdr stackb)
 {
-	(void)stackb;
-	operate_ra(stacka);
-	operate_sa(stacka);
+	sort_small(stacka, stackb);
 }
 
 int main(int argc, char **argv)
