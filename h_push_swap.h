@@ -20,6 +20,8 @@ void	check_error(char **argv);
 void	operate_sa(strhdr stacka);
 void	operate_rra(strhdr stacka);
 void	operate_ra(strhdr stacka);
+void	operate_pa(strhdr *stacka, strhdr *stackb);
+void	operate_pb(strhdr *stacka, strhdr *stackb);
 
 // 要素数が6以下のときのソート
 void	sort_three(strhdr stacka);

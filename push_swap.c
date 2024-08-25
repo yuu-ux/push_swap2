@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/25 18:27:05 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/25 22:47:07 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int main(int argc, char **argv)
 		list = ft_split(argv[1], ' ');
 		check_error(list);
 		stacka.len = count_elem(list);
+		stacka.cap = stacka.len;
 		generate_stack(&stacka, list, stacka.len);
 	}
 	else
@@ -95,9 +96,12 @@ int main(int argc, char **argv)
 		argv++;
 		check_error(argv);
 		stacka.len = count_elem(argv);
+		stacka.cap = stacka.len;
 		generate_stack(&stacka, argv, stacka.len);
 	}
-	stackb.data = (int *)malloc(sizeof(int) * stacka.len);
+	stackb.data = (int *)calloc(sizeof(int), stacka.len);
+	stackb.len = 0;
+	stackb.cap = stacka.len;
     for (int i = 0; i < stacka.len; i++)
         printf("%d ", stacka.data[i]);
     // メモリの解放
