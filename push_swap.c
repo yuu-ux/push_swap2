@@ -6,11 +6,11 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/25 22:47:07 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/27 22:10:03 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "h_push_swap.h"
+# include "h_push_swap.h"
 
 void error_call()
 {
@@ -69,6 +69,7 @@ void check_error(char **argv)
 void push_swap(strhdr stacka, strhdr stackb)
 {
 	sort_small(stacka, stackb);
+	sort_main(stacka, stackb);
 }
 
 int main(int argc, char **argv)
@@ -102,6 +103,9 @@ int main(int argc, char **argv)
 	stackb.data = (int *)calloc(sizeof(int), stacka.len);
 	stackb.len = 0;
 	stackb.cap = stacka.len;
+
+
+/////////////////////テスト用//////////////////////////////////
     for (int i = 0; i < stacka.len; i++)
         printf("%d ", stacka.data[i]);
     // メモリの解放
@@ -117,5 +121,6 @@ int main(int argc, char **argv)
         printf("%d ", stacka.data[i]);
     free(stacka.data);
     free(stackb.data);
+//////////////////////////////////////////////////////////////////////////
 	exit(EXIT_FAILURE);
 }

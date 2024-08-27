@@ -23,14 +23,16 @@ void	operate_ra(strhdr stacka);
 void	operate_pa(strhdr *stacka, strhdr *stackb);
 void	operate_pb(strhdr *stacka, strhdr *stackb);
 
-// 要素数が6以下のときのソート
+// 要素数が5以下のときのソート
 void	sort_three(strhdr stacka);
 void	sort_four(strhdr stacka, strhdr stackb);
 void	sort_five(strhdr stacka, strhdr stackb);
-void	sort_six(strhdr stacka, strhdr stackb);
 void	sort_small(strhdr stacka, strhdr stackb);
 
 // utils
 int	ft_min(strhdr stacka);
+
+// メインのソート
+void	sort_main(strhdr stacka, strhdr stackb);
 
 # endif
