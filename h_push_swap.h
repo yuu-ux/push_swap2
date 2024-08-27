@@ -30,4 +30,7 @@ void	sort_five(strhdr stacka, strhdr stackb);
 void	sort_six(strhdr stacka, strhdr stackb);
 void	sort_small(strhdr stacka, strhdr stackb);
 
+// utils
+int	ft_min(strhdr stacka);
+
 # endif
