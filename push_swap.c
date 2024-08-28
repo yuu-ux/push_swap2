@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 19:30:07 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 23:05:22 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 		stacka.len = count_elem(list);
 		stacka.cap = stacka.len;
 		generate_stack(&stacka, list, stacka.len);
-	//	position(stacka);
+		position(&stacka);
 	}
 	else
 	{
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 		stacka.len = count_elem(argv);
 		stacka.cap = stacka.len;
 		generate_stack(&stacka, argv, stacka.len);
-	//	position(stacka);
+		position(&stacka);
 	}
 	stackb.data = (info *)malloc(sizeof(info) * stacka.len);
 	for (int i = 0; i < stacka.len; i++)
@@ -126,9 +126,16 @@ int main(int argc, char **argv)
 	push_swap(stacka, stackb);
 	printf("\n");
     for (int i = 0; i < stacka.len; i++)
+	{
         printf("%d ", stacka.data[i].elem);
-free(stacka.data);
-free(stackb.data);
+	}
+	printf("\n");
+    for (int i = 0; i < stacka.len; i++)
+	{
+        printf("%d ", stacka.data[i].index);
+	}
+		free(stacka.data);
+		free(stackb.data);
 //////////////////////////////////////////////////////////////////////////
-exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 }

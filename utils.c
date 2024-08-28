@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:03:51 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 19:29:58 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 23:04:09 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ int	ft_min(strhdr stacka)
 	return (temp);
 }
 
-//void	position(strhdr *stack)
-//{
-//	int	i;
-//	int	j;
-//	int	temp;
-//
-//	i = 0;
-//
-//	while (i < stack->len)
-//	{
-//		j = i+1;
-//		while (j < stack->len)
-//		{
-//			if (stack->data[i].elem < stack->data[j].elem)
-//			{
-//				temp = stack->data[i].index;
-//				stack->data[i].index = stack->data[j].index;
-//				stack->data[j].index = temp;
-//			}
-//			j++;
-//		}
-//		i++;
-//	}
-//}
+// 座標圧縮
+void	position(strhdr *stack)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < stack->len-1)
+	{
+		j = i+1;
+		while (j < stack->len)
+		{
+			if (stack->data[i].elem > stack->data[j].elem)
+			{
+				temp = stack->data[i].elem;
+				stack->data[i].elem = stack->data[j].elem;
+				stack->data[j].elem = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}

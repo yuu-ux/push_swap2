@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 18:04:06 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 22:57:11 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	sort_small(strhdr stacka, strhdr stackb);
 
 // utils
 int	ft_min(strhdr stacka);
+void	position(strhdr *stack);
 
 // メインのソート
 void	sort_main(strhdr stacka, strhdr stackb);
