@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:07:21 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/27 22:10:03 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 16:34:51 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	sort_main(strhdr stacka, strhdr stackb)
 {
-
+	(void)stacka;
+	(void)stackb;
+	return ;
 }

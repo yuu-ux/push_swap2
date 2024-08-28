@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:33:21 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/15 22:02:53 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 18:07:49 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_duplicate(strhdr *stack, int elem, int elem_num)
 	i = 0;
 	while (i < elem_num)
 	{
-		if (stack->data[i] == elem)
+		if (stack->data[i].elem == elem)
 			return 0;
 		i++;
 	}
@@ -35,7 +35,7 @@ int	check_sorted(strhdr *stack, int elem_num)
 		return 1;
 	while (i < elem_num-1)
 	{
-		if (stack->data[i] > stack->data[i+1])
+		if (stack->data[i].elem > stack->data[i+1].elem)
 			return 1;
 		i++;
 	}
@@ -49,14 +49,19 @@ void	generate_stack(strhdr *stack, char **argv, int elem_num)
 	int	i;
 
 	i = 0;
-	stack->data = (int *)malloc(sizeof(int) * elem_num);
+	stack->data = (info *)malloc(sizeof(info) * elem_num);
+	for (int i = 0; i < elem_num; i++)
+	{
+		stack->data[i].elem = 0;
+		stack->data[i].index = 0;
+	}
 	if (!stack->data)
 		error_call();
 	while (i < elem_num)
 	{
 		temp = ft_atoi(argv[i]);
 		if (check_duplicate(stack, temp, i))
-			stack->data[i] = temp;
+			stack->data[i].elem = temp;
 		else
 		{
 			free(stack->data);

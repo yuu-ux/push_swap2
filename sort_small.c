@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:03:43 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/27 21:04:12 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/28 16:31:27 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_three(strhdr stacka)
 	int	second;
 	int	third;
 
-	first = stacka.data[0];
-	second = stacka.data[1];
-	third = stacka.data[2];
+	first = stacka.data[0].elem;
+	second = stacka.data[1].elem;
+	third = stacka.data[2].elem;
 	if ((first > second) && (second > third))
 	{
 		operate_ra(stacka);
@@ -47,9 +47,9 @@ void	sort_four(strhdr stacka, strhdr stackb)
 	
 	// 最小値を探す
 	min_index = ft_min(stacka);
-	min_elem = stacka.data[min_index];
+	min_elem = stacka.data[min_index].elem;
 	// 最小値と一致するまでraする
-	while (min_elem != stacka.data[0])
+	while (min_elem != stacka.data[0].elem)
 		operate_ra(stacka);
 	// 先頭要素をスタックbに送る
 	operate_pb(&stacka, &stackb);
@@ -71,9 +71,9 @@ void	sort_five(strhdr stacka, strhdr stackb)
 	while (i < 2)
 	{
 		min_index = ft_min(stacka);
-		min_elem = stacka.data[min_index];
+		min_elem = stacka.data[min_index].elem;
 		// 最小値と一致するまでraする
-		while (min_elem != stacka.data[0])
+		while (min_elem != stacka.data[0].elem)
 			operate_ra(stacka);
 		// 先頭要素をスタックbに送る
 		operate_pb(&stacka, &stackb);
@@ -95,7 +95,7 @@ void	sort_small(strhdr stacka, strhdr stackb)
 	(void)stackb;
 	if (stacka.len == 2)
 	{
-		if (stacka.data[0] > stacka.data[1])
+		if (stacka.data[0].elem > stacka.data[1].elem)
 			operate_sa(stacka);
 	}
 	if (stacka.len == 3)

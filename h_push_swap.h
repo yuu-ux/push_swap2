@@ -1,11 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   h_push_swap.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
+/*   Updated: 2024/08/28 18:04:06 by yehara           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef H_PUSH_SWAP_H
 # define H_PUSH_SWAP_H
 # include "./printf/ft_printf.h"
 
 typedef struct {
-    int *data;
-    int cap;
-    int len;
+	int	elem;
+	int	index;
+} info;
+
+typedef struct {
+	info	*data;
+	int	cap;
+    	int	len;
 } strhdr;
 
 // エラーチェック・スタック生成
