@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:03:43 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 16:31:27 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/29 20:47:34 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,8 @@ void	sort_three(strhdr stacka)
 // 最小値の要素のみスタックBに移動し、それ以外の要素は3個のパターンのソートに流す
 void	sort_four(strhdr stacka, strhdr stackb)
 {
-	int	min_index;
-	int	min_elem;
-	
-	// 最小値を探す
-	min_index = ft_min(stacka);
-	min_elem = stacka.data[min_index].elem;
 	// 最小値と一致するまでraする
-	while (min_elem != stacka.data[0].elem)
+	while (stacka.data[0].index != 0)
 		operate_ra(stacka);
 	// 先頭要素をスタックbに送る
 	operate_pb(&stacka, &stackb);
@@ -62,18 +56,14 @@ void	sort_four(strhdr stacka, strhdr stackb)
 // 最小値と2番めに小さい要素をスタックBに移動し、その他の値をsort_threeでソートする
 void	sort_five(strhdr stacka, strhdr stackb)
 {
-	int	min_index;
-	int	min_elem;
 	int	i;
 
 	i = 0;
 	// 最小値と2番めに小さい値をpbする
 	while (i < 2)
 	{
-		min_index = ft_min(stacka);
-		min_elem = stacka.data[min_index].elem;
 		// 最小値と一致するまでraする
-		while (min_elem != stacka.data[0].elem)
+		while (stacka.data[0].index != i)
 			operate_ra(stacka);
 		// 先頭要素をスタックbに送る
 		operate_pb(&stacka, &stackb);

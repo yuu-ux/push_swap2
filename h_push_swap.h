@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 22:57:11 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/29 20:17:08 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct {
 typedef struct {
 	info	*data;
 	int	cap;
-    	int	len;
+    int	len;
 } strhdr;
 
 // エラーチェック・スタック生成
@@ -48,6 +48,14 @@ void	sort_small(strhdr stacka, strhdr stackb);
 
 // utils
 int	ft_min(strhdr stacka);
+
+// 座標圧縮
+void    ft_swap(int *x, int* y);
+int partition(int *array, int left, int right);
+void    ft_quick_sort(int *array, int left, int right);
+void    coordinate(strhdr *stack, int *temp_array);
+void    position(strhdr *stack);
+
 void	position(strhdr *stack);
 
 // メインのソート

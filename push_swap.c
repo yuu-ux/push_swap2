@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 23:05:22 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/29 20:42:02 by yehara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void check_error(char **argv)
 			if (!(ft_isdigit(argv[i][j])))
 			{
 				error_call();
-			}	
+			}
 			j++;
 		}
 		i++;
@@ -127,12 +127,12 @@ int main(int argc, char **argv)
 	printf("\n");
     for (int i = 0; i < stacka.len; i++)
 	{
-        printf("%d ", stacka.data[i].elem);
+        printf("after sort%d\n", stacka.data[i].elem);
 	}
 	printf("\n");
     for (int i = 0; i < stacka.len; i++)
 	{
-        printf("%d ", stacka.data[i].index);
+        printf("after index%d\n", stacka.data[i].index);
 	}
 		free(stacka.data);
 		free(stackb.data);

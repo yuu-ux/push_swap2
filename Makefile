@@ -6,14 +6,14 @@ CFLAGS = -Wall -Wextra -Werror
 PRINTF = printf
 LIBFT = $(PRINTF)/libft
 
-PUSH_SOURCE = push_swap.c generate_stack.c operation.c sort_small.c utils.c sort_main.c
+PUSH_SOURCE = push_swap.c generate_stack.c operation.c sort_small.c utils.c sort_main.c position.c
 
 all: $(PUSH_SWAP)
 
 $(PUSH_SWAP): $(PUSH_SOURCE)
 	make -C $(PRINTF)
 	$(CC) $(CFLAGS) -o $@ $^ -L$(PRINTF) -lftprintf
-clean: 
+clean:
 	make -C $(PRINTF) clean
 	rm -f *.o
 
