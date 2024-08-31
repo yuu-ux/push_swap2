@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/29 20:17:08 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/31 18:03:54 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	operate_rra(strhdr stacka);
 void	operate_ra(strhdr stacka);
 void	operate_pa(strhdr *stacka, strhdr *stackb);
 void	operate_pb(strhdr *stacka, strhdr *stackb);
+void	operate_rb(strhdr stack);
 
 // 要素数が5以下のときのソート
 void	sort_three(strhdr stacka);
@@ -47,7 +48,9 @@ void	sort_five(strhdr stacka, strhdr stackb);
 void	sort_small(strhdr stacka, strhdr stackb);
 
 // utils
-int	ft_min(strhdr stacka);
+int ft_median(strhdr stack);
+int ft_min(strhdr stack);
+int ft_max(strhdr stack);
 
 // 座標圧縮
 void    ft_swap(int *x, int* y);
@@ -56,9 +59,9 @@ void    ft_quick_sort(int *array, int left, int right);
 void    coordinate(strhdr *stack, int *temp_array);
 void    position(strhdr *stack);
 
-void	position(strhdr *stack);
-
 // メインのソート
-void	sort_main(strhdr stacka, strhdr stackb);
+void    ft_push_b(strhdr *stacka, strhdr *stackb);
+void    target_sort(strhdr *stacka, strhdr *stackb);
+void	sort_main(strhdr *stacka, strhdr *stackb);
 
 # endif

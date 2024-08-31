@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:33:44 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/29 20:44:40 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/31 18:30:49 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	operate_sa(strhdr stacka)
 	temp = stacka.data[0];
 	stacka.data[0] = stacka.data[1];
 	stacka.data[1] = temp;
+    ft_printf("sa\n");
 }
 
 //はじめの要素を一番うしろに持っていってすべての要素を全て一つ前にずらす。
@@ -35,6 +36,7 @@ void	operate_ra(strhdr stacka)
 		i++;
 	}
 	stacka.data[stacka.len-1] = temp;
+    ft_printf("ra\n");
 }
 
 // 一番最後の要素を一番前に持ってきて、すべての要素をすべて後ろにずらす
@@ -51,6 +53,7 @@ void	operate_rra(strhdr stacka)
 		end--;
 	}
 	stacka.data[0] = temp;
+    ft_printf("rra\n");
 }
 
 // capの制限とスタックに何も値が入ってないときの処理を含めないといけない
@@ -78,6 +81,7 @@ void	operate_pa(strhdr *stacka, strhdr *stackb)
 	}
 	stackb->len--;
 	stacka->len++;
+    ft_printf("pa\n");
 }
 
 void	operate_pb(strhdr *stacka, strhdr *stackb)
@@ -104,14 +108,5 @@ void	operate_pb(strhdr *stacka, strhdr *stackb)
 	}
 	stackb->len++;
 	stacka->len--;
+    ft_printf("pb\n");
 }
-
-//void	operate_sb()
-//{
-//
-//}
-//
-//void	operate_ss()
-//{
-//
-//}

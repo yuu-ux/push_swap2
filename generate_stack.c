@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:33:21 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/28 18:07:49 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/31 18:51:57 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,8 @@ void	generate_stack(strhdr *stack, char **argv, int elem_num)
 		i++;
 	}
 	if (!(check_sorted(stack, elem_num)))
-	{
-
+    {
 		free(stack->data);
-		error_call();
-	}
+        exit(EXIT_FAILURE);
+    }
 }

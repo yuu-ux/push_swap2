@@ -6,38 +6,50 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 22:22:41 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/12 23:44:32 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/31 18:31:02 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h_push_swap.h"
 
-void	operate_ra()
+void	operate_rb(strhdr stack)
 {
+	info	temp;
+	int 	i;
 
+	i = 0;
+	temp = stack.data[0];
+	while (i < stack.len-1)
+	{
+		stack.data[i] = stack.data[i+1];
+		i++;
+	}
+	stack.data[stack.len-1] = temp;
+    ft_printf("rb\n");
 }
 
-void	operate_rb()
-{
-
-}
-
-void	operate_rr()
-{
-
-}
-
-void	operate_rra()
-{
-
-}
-
-void	operate_rrb()
-{
-
-}
-
-void	operate_rrr()
-{
-
-}
+//void	operate_ra()
+//{
+//
+//}
+//
+//
+//void	operate_rr()
+//{
+//
+//}
+//
+//void	operate_rra()
+//{
+//
+//}
+//
+//void	operate_rrb()
+//{
+//
+//}
+//
+//void	operate_rrr()
+//{
+//
+//}

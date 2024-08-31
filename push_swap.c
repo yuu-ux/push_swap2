@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/29 20:42:02 by yehara           ###   ########.fr       */
+/*   Updated: 2024/08/31 19:24:05 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void error_call()
 {
-	ft_printf("Error\n");
+    write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -71,7 +71,7 @@ void push_swap(strhdr stacka, strhdr stackb)
 	if (stacka.len < 6)
 		sort_small(stacka, stackb);
 	else
-		sort_main(stacka, stackb);
+		sort_main(&stacka, &stackb);
 }
 
 int main(int argc, char **argv)
@@ -112,30 +112,30 @@ int main(int argc, char **argv)
 	}
 	stackb.len = 0;
 	stackb.cap = stacka.len;
-
+    push_swap(stacka, stackb);
 /////////////////////テスト用//////////////////////////////////
-    for (int i = 0; i < stacka.len; i++)
-        printf("%d ", stacka.data[i].elem);
-    // メモリの解放
-    if (list) {
-        for (int i = 0; list[i] != NULL; i++) {
-            free(list[i]);
-        }
-        free(list);
-    }
-	push_swap(stacka, stackb);
-	printf("\n");
-    for (int i = 0; i < stacka.len; i++)
-	{
-        printf("after sort%d\n", stacka.data[i].elem);
-	}
-	printf("\n");
-    for (int i = 0; i < stacka.len; i++)
-	{
-        printf("after index%d\n", stacka.data[i].index);
-	}
-		free(stacka.data);
-		free(stackb.data);
+//    for (int i = 0; i < stacka.len; i++)
+//        printf("%d ", stacka.data[i].elem);
+//    // メモリの解放
+//    if (list) {
+//        for (int i = 0; list[i] != NULL; i++) {
+//            free(list[i]);
+//        }
+//        free(list);
+//    }
+//
+//	printf("\n");
+//    for (int i = 0; i < stacka.len; i++)
+//	{
+//        printf("after sort%d\n", stacka.data[i].elem);
+//	}
+//	printf("\n");
+//    for (int i = 0; i < stacka.len; i++)
+//	{
+//        printf("after index%d\n", stacka.data[i].index);
+//	}
+//		free(stacka.data);
+//		free(stackb.data);
 //////////////////////////////////////////////////////////////////////////
 		exit(EXIT_FAILURE);
 }

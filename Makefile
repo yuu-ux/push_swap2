@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 PRINTF = printf
 LIBFT = $(PRINTF)/libft
 
-PUSH_SOURCE = push_swap.c generate_stack.c operation.c sort_small.c utils.c sort_main.c position.c
+PUSH_SOURCE = push_swap.c generate_stack.c operation.c sort_small.c utils.c sort_main.c position.c operation2.c
 
 all: $(PUSH_SWAP)
 
