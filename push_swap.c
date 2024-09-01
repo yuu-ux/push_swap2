@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/09/01 13:05:56 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/01 13:42:43 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void check_error(char **argv)
 {
 	int i;
 	int j;
-	long temp;
+	long    temp;
 	int flag;
-	i = 0;
 
+	i = 0;
 	//整数外・int外
 	while (argv[i])
 	{
@@ -83,12 +83,12 @@ int main(int argc, char **argv)
 	list = NULL;
 	//引数が0,1
 	if (argc == 1)
-	{
 		exit(EXIT_FAILURE);
-	}
 	if (argc == 2)
 	{
 		list = ft_split(argv[1], ' ');
+        if (!list[0])
+            error_call();
 		check_error(list);
 		stacka.len = count_elem(list);
 		stacka.cap = stacka.len;
