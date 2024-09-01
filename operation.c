@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:33:44 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/31 18:30:49 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/01 13:03:39 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	operate_ra(strhdr stacka)
 // 一番最後の要素を一番前に持ってきて、すべての要素をすべて後ろにずらす
 void	operate_rra(strhdr stacka)
 {
-	info	temp;
-	int	end;
+	info    temp;
+	int end;
 
 	end = (stacka.len - 1);
 	temp = stacka.data[end];
