@@ -6,38 +6,52 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:07:21 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/31 18:04:38 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/03 22:14:16 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "h_push_swap.h"
 
-void    ft_push_b(strhdr *stacka, strhdr *stackb)
-{
-    while (stacka->len != 0)
-    {
-        operate_pb(stacka, stackb);
-    }
-}
-
-void    target_sort(strhdr *stacka, strhdr *stackb)
+int get_max_digit(strhdr stack)
 {
     int max;
+    int max_digit;
+    int i;
 
-    while (0 != stackb->len)
+    i = 0;
+    max = stack.data[0].index;
+    max_digit = 0;
+    while (i < stack.len)
     {
-        max = ft_max(*stackb);
-        while (max != stackb->data[0].elem)
-            operate_rb(*stackb);
-        operate_pa(stacka, stackb);
+        if (stack.data[i].index > max)
+            max = stack.data[i].index;
+        i++;
     }
+    while ((max >> max_digit) != 0)
+        max_digit++;
+    return (max_digit);
 }
 
-void	sort_main(strhdr *stacka, strhdr *stackb)
+void    radix_sort(strhdr *stacka, strhdr *stackb)
 {
-    // stackaの中央値より小さい値をすべてpbする
-    ft_push_b(stacka, stackb);
-    // インデックス番号をもとに選択ソートする
-    target_sort(stacka, stackb);
-	return ;
+    int i;
+    int j;
+    int max_digit;
+
+    i = 0;
+    max_digit = get_max_digit(*stacka);
+    while (i < max_digit)
+    {
+        j = 0;
+        while (j++ < stacka->len)
+        {
+            if (((stacka->data[j].index >> i) & 1) == 1)
+                operate_ra(*stacka);
+            else
+                operate_pb(stacka, stackb);
+        }
+        while (stackb->len != 0)
+            operate_pa(stacka, stackb);
+        i++;
+    }
 }

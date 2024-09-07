@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/31 18:03:54 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/03 21:37:39 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct {
 // エラーチェック・スタック生成
 int	check_duplicate(strhdr *stack, int elem, int elem_num);
 int	check_sorted(strhdr *stack, int elem_num);
-void	generate_stack(strhdr *stack, char **argv, int elem_num);
+void	generate_stack(strhdr *stack, char **argv);
 void	error_call();
 int	count_elem(char **s);
 void	check_error(char **argv);
@@ -51,6 +51,7 @@ void	sort_small(strhdr stacka, strhdr stackb);
 int ft_median(strhdr stack);
 int ft_min(strhdr stack);
 int ft_max(strhdr stack);
+void    init_struct(strhdr *stack);
 
 // 座標圧縮
 void    ft_swap(int *x, int* y);
@@ -60,8 +61,7 @@ void    coordinate(strhdr *stack, int *temp_array);
 void    position(strhdr *stack);
 
 // メインのソート
-void    ft_push_b(strhdr *stacka, strhdr *stackb);
-void    target_sort(strhdr *stacka, strhdr *stackb);
-void	sort_main(strhdr *stacka, strhdr *stackb);
+void    radix_sort(strhdr *stacka, strhdr *stackb);
+int get_max_digit(strhdr stack);
 
 # endif

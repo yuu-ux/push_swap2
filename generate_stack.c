@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:33:21 by yehara            #+#    #+#             */
-/*   Updated: 2024/08/31 18:51:57 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/01 15:43:54 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,18 @@ int	check_sorted(strhdr *stack, int elem_num)
 	return 0;
 }
 
-void	generate_stack(strhdr *stack, char **argv, int elem_num)
+void	generate_stack(strhdr *stack, char **argv)
 {
 	// 重複・ソートチェック
 	int	temp;
 	int	i;
 
 	i = 0;
-	stack->data = (info *)malloc(sizeof(info) * elem_num);
-	for (int i = 0; i < elem_num; i++)
-	{
-		stack->data[i].elem = 0;
-		stack->data[i].index = 0;
-	}
+	stack->data = (info *)malloc(sizeof(info) * stack->len);
+    init_struct(stack);
 	if (!stack->data)
 		error_call();
-	while (i < elem_num)
+	while (i < stack->len)
 	{
 		temp = ft_atoi(argv[i]);
 		if (check_duplicate(stack, temp, i))
@@ -69,7 +65,7 @@ void	generate_stack(strhdr *stack, char **argv, int elem_num)
 		}
 		i++;
 	}
-	if (!(check_sorted(stack, elem_num)))
+	if (!(check_sorted(stack, stack->len)))
     {
 		free(stack->data);
         exit(EXIT_FAILURE);
