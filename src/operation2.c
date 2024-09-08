@@ -27,29 +27,3 @@ void	operate_rb(strhdr stack)
 	stack.data[stack.len-1] = temp;
     ft_printf("rb\n");
 }
-
-//void	operate_ra()
-//{
-//
-//}
-//
-//
-//void	operate_rr()
-//{
-//
-//}
-//
-//void	operate_rra()
-//{
-//
-//}
-//
-//void	operate_rrb()
-//{
-//
-//}
-//
-//void	operate_rrr()
-//{
-//
-//}

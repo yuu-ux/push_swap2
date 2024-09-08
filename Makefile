@@ -1,12 +1,12 @@
 PUSH_SWAP = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 PRINTF = printf
 LIBFT = $(PRINTF)/libft
 
-PUSH_SOURCE = push_swap.c generate_stack.c operation.c sort_small.c utils.c sort_main.c position.c operation2.c
+PUSH_SOURCE = src/push_swap.c src/generate_stack.c src/operation.c src/sort_small.c src/utils.c src/sort_main.c src/position.c src/operation2.c
 
 all: $(PUSH_SWAP)
 

@@ -12,7 +12,7 @@
 
 #ifndef H_PUSH_SWAP_H
 # define H_PUSH_SWAP_H
-# include "./printf/ft_printf.h"
+# include "../printf/ft_printf.h"
 
 typedef struct {
 	int	elem;
@@ -48,9 +48,6 @@ void	sort_five(strhdr stacka, strhdr stackb);
 void	sort_small(strhdr stacka, strhdr stackb);
 
 // utils
-int ft_median(strhdr stack);
-int ft_min(strhdr stack);
-int ft_max(strhdr stack);
 void    init_struct(strhdr *stack);
 
 // 座標圧縮

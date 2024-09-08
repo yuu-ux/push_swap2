@@ -19,9 +19,8 @@ void	operate_sa(strhdr stacka)
 	temp = stacka.data[0];
 	stacka.data[0] = stacka.data[1];
 	stacka.data[1] = temp;
-    ft_printf("sa\n");
+	ft_printf("sa\n");
 }
-
 //はじめの要素を一番うしろに持っていってすべての要素を全て一つ前にずらす。
 void	operate_ra(strhdr stacka)
 {
