@@ -12,7 +12,7 @@
 
 #include "h_push_swap.h"
 
-void	sort_three(strhdr stacka)
+void	sort_three(t_strhdr stacka)
 {
 	int	first;
 	int	second;
@@ -39,7 +39,7 @@ void	sort_three(strhdr stacka)
 		operate_ra(stacka);
 }
 
-void	sort_four(strhdr stacka, strhdr stackb)
+void	sort_four(t_strhdr stacka, t_strhdr stackb)
 {
 	while (stacka.data[0].index != 0)
 		operate_rra(stacka);
@@ -48,7 +48,7 @@ void	sort_four(strhdr stacka, strhdr stackb)
 	operate_pa(&stacka, &stackb);
 }
 
-void	sort_five(strhdr stacka, strhdr stackb)
+void	sort_five(t_strhdr stacka, t_strhdr stackb)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ void	sort_five(strhdr stacka, strhdr stackb)
 		operate_pa(&stacka, &stackb);
 }
 
-void	sort_small(strhdr stacka, strhdr stackb)
+void	sort_small(t_strhdr stacka, t_strhdr stackb)
 {
 	(void)stackb;
 	if (stacka.len == 2)

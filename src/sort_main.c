@@ -12,7 +12,7 @@
 
 #include "h_push_swap.h"
 
-int	get_max_bit(strhdr stack)
+int	get_max_bit(t_strhdr stack)
 {
 	int	max;
 	int	max_bits;
@@ -32,7 +32,7 @@ int	get_max_bit(strhdr stack)
 	return (max_bits);
 }
 
-void	radix_sort(strhdr *stacka, strhdr *stackb)
+void	radix_sort(t_strhdr *stacka, t_strhdr *stackb)
 {
 	int	i;
 	int	j;

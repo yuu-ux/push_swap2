@@ -12,9 +12,9 @@
 
 #include "h_push_swap.h"
 
-void	operate_sa(strhdr stacka)
+void	operate_sa(t_strhdr stacka)
 {
-	info	temp;
+	t_info	temp;
 
 	temp = stacka.data[0];
 	stacka.data[0] = stacka.data[1];
@@ -22,9 +22,9 @@ void	operate_sa(strhdr stacka)
 	ft_printf("sa\n");
 }
 
-void	operate_ra(strhdr stacka)
+void	operate_ra(t_strhdr stacka)
 {
-	info	temp;
+	t_info	temp;
 	int		i;
 
 	i = 0;
@@ -38,9 +38,9 @@ void	operate_ra(strhdr stacka)
 	ft_printf("ra\n");
 }
 
-void	operate_rra(strhdr stacka)
+void	operate_rra(t_strhdr stacka)
 {
-	info	temp;
+	t_info	temp;
 	int		end;
 
 	end = (stacka.len - 1);
@@ -54,7 +54,7 @@ void	operate_rra(strhdr stacka)
 	ft_printf("rra\n");
 }
 
-void	operate_pa(strhdr *stacka, strhdr *stackb)
+void	operate_pa(t_strhdr *stacka, t_strhdr *stackb)
 {
 	int	end;
 	int	i;
@@ -81,7 +81,7 @@ void	operate_pa(strhdr *stacka, strhdr *stackb)
 	ft_printf("pa\n");
 }
 
-void	operate_pb(strhdr *stacka, strhdr *stackb)
+void	operate_pb(t_strhdr *stacka, t_strhdr *stackb)
 {
 	int	end;
 	int	i;

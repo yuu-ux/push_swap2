@@ -12,9 +12,9 @@
 
 #include "h_push_swap.h"
 
-void	operate_rb(strhdr stack)
+void	operate_rb(t_strhdr stack)
 {
-	info	temp;
+	t_info	temp;
 	int		i;
 
 	i = 0;

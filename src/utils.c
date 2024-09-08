@@ -12,7 +12,7 @@
 
 #include "h_push_swap.h"
 
-void	init_struct(strhdr *stack)
+void	init_struct(t_strhdr *stack)
 {
 	int	i;
 

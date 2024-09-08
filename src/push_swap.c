@@ -56,7 +56,7 @@ void	check_error(char **argv)
 	}
 }
 
-void	push_swap(strhdr stacka, strhdr stackb)
+void	push_swap(t_strhdr stacka, t_strhdr stackb)
 {
 	if (stacka.len < 6)
 		sort_small(stacka, stackb);
@@ -66,8 +66,8 @@ void	push_swap(strhdr stacka, strhdr stackb)
 
 int	main(int argc, char **argv)
 {
-	strhdr	stacka;
-	strhdr	stackb;
+	t_strhdr	stacka;
+	t_strhdr	stackb;
 	char	**list;
 
 	list = NULL;
@@ -93,7 +93,7 @@ int	main(int argc, char **argv)
 		generate_stack(&stacka, argv);
 		position(&stacka);
 	}
-	stackb.data = (info *)malloc(sizeof(info) * stacka.len);
+	stackb.data = (t_info *)malloc(sizeof(t_info) * stacka.len);
 	init_struct(&stackb);
 	stackb.len = 0;
 	stackb.cap = stacka.len;

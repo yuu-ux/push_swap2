@@ -56,7 +56,7 @@ void	ft_quick_sort(int *array, int left, int right)
 	}
 }
 
-void	coordinate(strhdr *stack, int *temp_array)
+void	coordinate(t_strhdr *stack, int *temp_array)
 {
 	int	i;
 	int	j;
@@ -75,7 +75,7 @@ void	coordinate(strhdr *stack, int *temp_array)
 	}
 }
 
-void	position(strhdr *stack)
+void	position(t_strhdr *stack)
 {
 	int	*temp_array;
 	int	i;

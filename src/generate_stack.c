@@ -12,7 +12,7 @@
 
 #include "h_push_swap.h"
 
-int	check_duplicate(strhdr *stack, int elem, int elem_num)
+int	check_duplicate(t_strhdr *stack, int elem, int elem_num)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check_duplicate(strhdr *stack, int elem, int elem_num)
 	return (1);
 }
 
-int	check_sorted(strhdr *stack, int elem_num)
+int	check_sorted(t_strhdr *stack, int elem_num)
 {
 	int	i;
 
@@ -42,13 +42,13 @@ int	check_sorted(strhdr *stack, int elem_num)
 	return (0);
 }
 
-void	generate_stack(strhdr *stack, char **argv)
+void	generate_stack(t_strhdr *stack, char **argv)
 {
 	int	temp;
 	int	i;
 
 	i = 0;
-	stack->data = (info *)malloc(sizeof(info) * stack->len);
+	stack->data = (t_info *)malloc(sizeof(t_info) * stack->len);
 	init_struct(stack);
 	if (!stack->data)
 		error_call();
