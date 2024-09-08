@@ -37,15 +37,19 @@ void    radix_sort(strhdr *stacka, strhdr *stackb)
     int i;
     int j;
     int max_digit;
+    int size;
 
+    size = stacka->len;
     i = 0;
     max_digit = get_max_digit(*stacka);
     while (i < max_digit)
     {
         j = 0;
-        while (j++ < stacka->len)
+        // 比較したあとにインクリメントされるから回る回数に影響はない
+        // ただ、処理の中でjを使用する場合、挙動が変わってくるので注意が必要
+        while (j++ < size)
         {
-            if (((stacka->data[j].index >> i) & 1) == 1)
+            if (((stacka->data[0].index >> i) & 1) == 1)
                 operate_ra(*stacka);
             else
                 operate_pb(stacka, stackb);

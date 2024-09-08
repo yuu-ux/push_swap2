@@ -110,26 +110,29 @@ int main(int argc, char **argv)
 	stackb.cap = stacka.len;
     push_swap(stacka, stackb);
 /////////////////////テスト用//////////////////////////////////
-    for (int i = 0; i < stacka.len; i++)
-        printf("%d ", stacka.data[i].elem);
-    // メモリの解放
-    if (list) {
-        for (int i = 0; list[i] != NULL; i++) {
-            free(list[i]);
-        }
-        free(list);
-    }
-
-	printf("\n");
-    for (int i = 0; i < stacka.len; i++)
-	{
-        printf("after sort%d\n", stacka.data[i].elem);
-	}
-	printf("\n");
-    for (int i = 0; i < stacka.len; i++)
-	{
-        printf("after index%d\n", stacka.data[i].index);
-	}
+//    for (int i = 0; i < stacka.len; i++)
+//	{
+//        printf("%d ", stacka.data[i].elem);
+//	}
+//	printf("\n");
+//    // メモリの解放
+//    if (list) {
+//        for (int i = 0; list[i] != NULL; i++) {
+//            free(list[i]);
+//        }
+//        free(list);
+//    }
+//
+//	printf("\n");
+//    for (int i = 0; i < stacka.len; i++)
+//	{
+//        printf("after sort%d\n", stacka.data[i].elem);
+//	}
+//	printf("\n");
+//    for (int i = 0; i < stacka.len; i++)
+//	{
+//        printf("after index%d\n", stacka.data[i].index);
+//	}
 		free(stacka.data);
 		free(stackb.data);
 //////////////////////////////////////////////////////////////////////////
