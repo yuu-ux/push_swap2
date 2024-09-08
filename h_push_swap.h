@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/09/03 21:37:39 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/07 19:37:58 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void    position(strhdr *stack);
 
 // メインのソート
 void    radix_sort(strhdr *stacka, strhdr *stackb);
-int get_max_digit(strhdr stack);
+int get_max_bit(strhdr stack);
 
 # endif
