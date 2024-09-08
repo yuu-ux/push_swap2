@@ -12,15 +12,15 @@
 
 #include "h_push_swap.h"
 
-void    init_struct(strhdr *stack)
+void	init_struct(strhdr *stack)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < stack->len)
-    {
-        stack->data[i].elem = 0;
-        stack->data[i].index = 0;
-        i++;
-    }
+	i = 0;
+	while (i < stack->len)
+	{
+		stack->data[i].elem = 0;
+		stack->data[i].index = 0;
+		i++;
+	}
 }

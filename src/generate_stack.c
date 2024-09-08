@@ -20,10 +20,10 @@ int	check_duplicate(strhdr *stack, int elem, int elem_num)
 	while (i < elem_num)
 	{
 		if (stack->data[i].elem == elem)
-			return 0;
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	check_sorted(strhdr *stack, int elem_num)
@@ -32,25 +32,24 @@ int	check_sorted(strhdr *stack, int elem_num)
 
 	i = 0;
 	if (elem_num == 0)
-		return 1;
-	while (i < elem_num-1)
+		return (1);
+	while (i < elem_num - 1)
 	{
-		if (stack->data[i].elem > stack->data[i+1].elem)
-			return 1;
+		if (stack->data[i].elem > stack->data[i + 1].elem)
+			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 void	generate_stack(strhdr *stack, char **argv)
 {
-	// 重複・ソートチェック
 	int	temp;
 	int	i;
 
 	i = 0;
 	stack->data = (info *)malloc(sizeof(info) * stack->len);
-    init_struct(stack);
+	init_struct(stack);
 	if (!stack->data)
 		error_call();
 	while (i < stack->len)
@@ -66,8 +65,8 @@ void	generate_stack(strhdr *stack, char **argv)
 		i++;
 	}
 	if (!(check_sorted(stack, stack->len)))
-    {
+	{
 		free(stack->data);
-        exit(EXIT_FAILURE);
-    }
+		exit(EXIT_FAILURE);
+	}
 }

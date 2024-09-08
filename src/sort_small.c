@@ -39,55 +39,41 @@ void	sort_three(strhdr stacka)
 		operate_ra(stacka);
 }
 
-// 最小値の要素のみスタックBに移動し、それ以外の要素は3個のパターンのソートに流す
 void	sort_four(strhdr stacka, strhdr stackb)
 {
-	// 最小値と一致するまでrraする
 	while (stacka.data[0].index != 0)
 		operate_rra(stacka);
-	// 先頭要素をスタックbに送る
 	operate_pb(&stacka, &stackb);
-	// それ以外の数字を3個のパターンのソートでソートする
 	sort_three(stacka);
-	// スタックbの要素をスタックaに戻す
 	operate_pa(&stacka, &stackb);
 }
 
-// 最小値と2番めに小さい要素をスタックBに移動し、その他の値をsort_threeでソートする
 void	sort_five(strhdr stacka, strhdr stackb)
 {
 	int	i;
 
 	i = 0;
-	// 最小値と2番めに小さい値をpbする
 	while (i < 2)
 	{
-		// 最小値と一致するまでraする
-        if (stacka.data[1].index == i)
-            operate_ra(stacka);
-        else if (stacka.data[2].index == i)
-        {
-            operate_ra(stacka);
-            operate_ra(stacka);
-        }
-        else
-        {
-            while (stacka.data[0].index != i)
-                operate_rra(stacka);
-        }
-		// 先頭要素をスタックbに送る
+		if (stacka.data[1].index == i)
+			operate_ra(stacka);
+		else if (stacka.data[2].index == i)
+		{
+			operate_ra(stacka);
+			operate_ra(stacka);
+		}
+		else
+		{
+			while (stacka.data[0].index != i)
+				operate_rra(stacka);
+		}
 		operate_pb(&stacka, &stackb);
 		i++;
 	}
-	// それ以外の数字を3個のパターンのソートでソートする
 	sort_three(stacka);
 	i = 0;
-	while (i < 2)
-	{
-		// スタックbの要素をスタックaに戻す
+	while (i++ < 2)
 		operate_pa(&stacka, &stackb);
-		i++;
-	}
 }
 
 void	sort_small(strhdr stacka, strhdr stackb)

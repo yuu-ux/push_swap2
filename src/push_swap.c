@@ -12,15 +12,15 @@
 
 #include "h_push_swap.h"
 
-void error_call()
+void	error_call(void)
 {
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
-int count_elem(char **s)
+int	count_elem(char **s)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (*s)
@@ -31,42 +31,32 @@ int count_elem(char **s)
 	return (count);
 }
 
-void check_error(char **argv)
+void	check_error(char **argv)
 {
-	int i;
-	int j;
-	long temp;
-	int flag;
+	int		i;
+	int		j;
+	long	temp;
 
 	i = 0;
-	// 整数外・int外
 	while (argv[i])
 	{
 		temp = ft_atoi(argv[i]);
 		if (INT_MAX < temp || INT_MIN > temp)
 			error_call();
-		flag = (0 > temp);
-		// 整数外
 		j = 0;
 		while (argv[i][j])
 		{
-			if (flag)
-			{
-				flag = 0;
+			if (0 > temp)
 				j++;
-			}
 			if (!(ft_isdigit(argv[i][j])))
-			{
 				error_call();
-			}
 			j++;
 		}
 		i++;
 	}
-	return;
 }
 
-void push_swap(strhdr stacka, strhdr stackb)
+void	push_swap(strhdr stacka, strhdr stackb)
 {
 	if (stacka.len < 6)
 		sort_small(stacka, stackb);
@@ -74,20 +64,19 @@ void push_swap(strhdr stacka, strhdr stackb)
 		radix_sort(&stacka, &stackb);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	strhdr	stacka;
 	strhdr	stackb;
-	char    **list;
+	char	**list;
 
 	list = NULL;
-	// 引数が0,1
 	if (argc == 1)
 		exit(EXIT_FAILURE);
 	if (argc == 2)
 	{
 		list = ft_split(argv[1], ' ');
-		if (!list[0])
+		if (!list)
 			error_call();
 		check_error(list);
 		stacka.len = count_elem(list);
@@ -109,32 +98,15 @@ int main(int argc, char **argv)
 	stackb.len = 0;
 	stackb.cap = stacka.len;
 	push_swap(stacka, stackb);
-	/////////////////////テスト用//////////////////////////////////
-	//    for (int i = 0; i < stacka.len; i++)
-	//	{
-	//        printf("%d ", stacka.data[i].elem);
-	//	}
-	//	printf("\n");
-	//    // メモリの解放
-	//    if (list) {
-	//        for (int i = 0; list[i] != NULL; i++) {
-	//            free(list[i]);
-	//        }
-	//        free(list);
-	//    }
-	//
-	//	printf("\n");
-	//    for (int i = 0; i < stacka.len; i++)
-	//	{
-	//        printf("after sort%d\n", stacka.data[i].elem);
-	//	}
-	//	printf("\n");
-	//    for (int i = 0; i < stacka.len; i++)
-	//	{
-	//        printf("after index%d\n", stacka.data[i].index);
-	//	}
+	if (list)
+	{
+		for (int i = 0; list[i] != NULL; i++)
+		{
+			free(list[i]);
+		}
+		free(list);
+	}
 	free(stacka.data);
 	free(stackb.data);
-	//////////////////////////////////////////////////////////////////////////
 	exit(EXIT_FAILURE);
 }

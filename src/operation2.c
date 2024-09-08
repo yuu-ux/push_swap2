@@ -15,15 +15,15 @@
 void	operate_rb(strhdr stack)
 {
 	info	temp;
-	int 	i;
+	int		i;
 
 	i = 0;
 	temp = stack.data[0];
-	while (i < stack.len-1)
+	while (i < stack.len - 1)
 	{
-		stack.data[i] = stack.data[i+1];
+		stack.data[i] = stack.data[i + 1];
 		i++;
 	}
-	stack.data[stack.len-1] = temp;
-    ft_printf("rb\n");
+	stack.data[stack.len - 1] = temp;
+	ft_printf("rb\n");
 }
