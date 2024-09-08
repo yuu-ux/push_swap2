@@ -1,27 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
+/*   Updated: 2024/09/08 14:26:41 by ebarayuug        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-
-
-
-
-
-
-
-
-
-
-
-# include "h_push_swap.h"
+#include "h_push_swap.h"
 
 void error_call()
 {
-    write(2, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
-int	count_elem(char **s)
+int count_elem(char **s)
 {
-	size_t	count;
+	size_t count;
 
 	count = 0;
 	while (*s)
@@ -34,13 +33,13 @@ int	count_elem(char **s)
 
 void check_error(char **argv)
 {
-	int	i;
-	int	j;
-	long   temp;
+	int i;
+	int j;
+	long temp;
 	int flag;
 
 	i = 0;
-	//整数外・int外
+	// 整数外・int外
 	while (argv[i])
 	{
 		temp = ft_atoi(argv[i]);
@@ -64,7 +63,7 @@ void check_error(char **argv)
 		}
 		i++;
 	}
-	return ;
+	return;
 }
 
 void push_swap(strhdr stacka, strhdr stackb)
@@ -82,14 +81,14 @@ int main(int argc, char **argv)
 	char    **list;
 
 	list = NULL;
-	//引数が0,1
+	// 引数が0,1
 	if (argc == 1)
 		exit(EXIT_FAILURE);
 	if (argc == 2)
 	{
 		list = ft_split(argv[1], ' ');
-        if (!list[0])
-            error_call();
+		if (!list[0])
+			error_call();
 		check_error(list);
 		stacka.len = count_elem(list);
 		stacka.cap = stacka.len;
@@ -106,36 +105,36 @@ int main(int argc, char **argv)
 		position(&stacka);
 	}
 	stackb.data = (info *)malloc(sizeof(info) * stacka.len);
-    init_struct(&stackb);
+	init_struct(&stackb);
 	stackb.len = 0;
 	stackb.cap = stacka.len;
-    push_swap(stacka, stackb);
-/////////////////////テスト用//////////////////////////////////
-//    for (int i = 0; i < stacka.len; i++)
-//	{
-//        printf("%d ", stacka.data[i].elem);
-//	}
-//	printf("\n");
-//    // メモリの解放
-//    if (list) {
-//        for (int i = 0; list[i] != NULL; i++) {
-//            free(list[i]);
-//        }
-//        free(list);
-//    }
-//
-//	printf("\n");
-//    for (int i = 0; i < stacka.len; i++)
-//	{
-//        printf("after sort%d\n", stacka.data[i].elem);
-//	}
-//	printf("\n");
-//    for (int i = 0; i < stacka.len; i++)
-//	{
-//        printf("after index%d\n", stacka.data[i].index);
-//	}
-		free(stacka.data);
-		free(stackb.data);
-//////////////////////////////////////////////////////////////////////////
-		exit(EXIT_FAILURE);
+	push_swap(stacka, stackb);
+	/////////////////////テスト用//////////////////////////////////
+	//    for (int i = 0; i < stacka.len; i++)
+	//	{
+	//        printf("%d ", stacka.data[i].elem);
+	//	}
+	//	printf("\n");
+	//    // メモリの解放
+	//    if (list) {
+	//        for (int i = 0; list[i] != NULL; i++) {
+	//            free(list[i]);
+	//        }
+	//        free(list);
+	//    }
+	//
+	//	printf("\n");
+	//    for (int i = 0; i < stacka.len; i++)
+	//	{
+	//        printf("after sort%d\n", stacka.data[i].elem);
+	//	}
+	//	printf("\n");
+	//    for (int i = 0; i < stacka.len; i++)
+	//	{
+	//        printf("after index%d\n", stacka.data[i].index);
+	//	}
+	free(stacka.data);
+	free(stackb.data);
+	//////////////////////////////////////////////////////////////////////////
+	exit(EXIT_FAILURE);
 }

@@ -1,16 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_main.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 21:07:21 by yehara            #+#    #+#             */
+/*   Updated: 2024/09/08 14:26:18 by ebarayuug        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-
-
-
-
-
-
-
-
-
-
-# include "h_push_swap.h"
+#include "h_push_swap.h"
 
 int get_max_bit(strhdr stack)
 {
@@ -32,7 +32,7 @@ int get_max_bit(strhdr stack)
     return (max_bits);
 }
 
-void    radix_sort(strhdr *stacka, strhdr *stackb)
+void radix_sort(strhdr *stacka, strhdr *stackb)
 {
     int i;
     int j;
