@@ -1,7 +1,7 @@
 PUSH_SWAP = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 PRINTF = printf
 LIBFT = $(PRINTF)/libft

@@ -29,7 +29,6 @@ void	init_strhdr(t_strhdr *stack, int len, int cap_size)
 {
 	stack->len = len;
 	stack->cap = cap_size;
-	//    init_info(stack);
 }
 
 void	init_stack(t_strhdr *stack, char **argv)
@@ -37,7 +36,6 @@ void	init_stack(t_strhdr *stack, char **argv)
 	check_error(argv);
 	init_strhdr(stack, count_elem(argv), count_elem(argv));
 	generate_stack(stack, argv);
-	//    init_info(stack);
 	position(stack);
 }
 

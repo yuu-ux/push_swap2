@@ -93,9 +93,10 @@ int	main(int argc, char **argv)
 	init_stack(&stacka, argv);
 	stackb.data = (t_info *)malloc(sizeof(t_info) * stacka.len);
 	init_strhdr(&stackb, 0, stacka.len);
-	//   print_stack(stacka);
+	init_info(&stackb);
+	// print_stack(stacka);
 	push_swap(stacka, stackb);
-	//    print_stack(stacka);
+	//print_stack(stacka);
 	free_all(list, &stacka, &stackb);
 	return (0);
 }
