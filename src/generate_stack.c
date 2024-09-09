@@ -50,7 +50,7 @@ void	generate_stack(t_strhdr *stack, char **argv)
 	i = 0;
 	stack->data = (t_info *)malloc(sizeof(t_info) * stack->len);
 	if (!stack->data)
-		error_call();
+		exit(EXIT_FAILURE);
 	init_info(stack);
 	while (i < stack->len)
 	{

@@ -84,6 +84,8 @@ int	main(int argc, char **argv)
 		argv++;
 	init_stack(&stacka, argv);
 	stackb.data = (t_info *)malloc(sizeof(t_info) * stacka.len);
+	if (!stackb.data)
+		exit(EXIT_FAILURE);
 	init_strhdr(&stackb, 0, stacka.len);
 	init_info(&stackb);
 	push_swap(stacka, stackb);
