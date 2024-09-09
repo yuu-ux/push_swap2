@@ -6,7 +6,7 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:45 by yehara            #+#    #+#             */
-/*   Updated: 2024/09/07 19:37:58 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/08 21:14:55 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void		sort_five(t_strhdr stacka, t_strhdr stackb);
 void		sort_small(t_strhdr stacka, t_strhdr stackb);
 
 // utils
-void		init_struct(t_strhdr *stack);
+void		init_info(t_strhdr *stack);
+void	init_strhdr(t_strhdr *stack, int len, int cap_size);
+void    init_stack(t_strhdr *stack, char **argv);
+void    free_all(char **list, t_strhdr *stacka, t_strhdr *stackb);
 
 // 座標圧縮
 void		ft_swap(int *x, int *y);

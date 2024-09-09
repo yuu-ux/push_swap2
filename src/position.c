@@ -82,6 +82,8 @@ void	position(t_strhdr *stack)
 
 	i = 0;
 	temp_array = (int *)malloc(sizeof(int) * stack->len);
+	if (!temp_array)
+		exit(EXIT_FAILURE);
 	while (i < stack->len)
 	{
 		temp_array[i] = stack->data[i].elem;

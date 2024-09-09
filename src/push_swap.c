@@ -6,12 +6,20 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/09/08 14:26:41 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/09 18:56:41 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h_push_swap.h"
 
+// デバッグ用
+void	print_stack(t_strhdr stack)
+{
+	for (int i = 0; i < stack.len; i++)
+	{
+		printf("%d\n", stack.data[i].elem);
+	}
+}
 void	error_call(void)
 {
 	write(2, "Error\n", 6);
@@ -68,7 +76,7 @@ int	main(int argc, char **argv)
 {
 	t_strhdr	stacka;
 	t_strhdr	stackb;
-	char	**list;
+	char		**list;
 
 	list = NULL;
 	if (argc == 1)
@@ -78,35 +86,16 @@ int	main(int argc, char **argv)
 		list = ft_split(argv[1], ' ');
 		if (!list)
 			error_call();
-		check_error(list);
-		stacka.len = count_elem(list);
-		stacka.cap = stacka.len;
-		generate_stack(&stacka, list);
-		position(&stacka);
+		argv = list;
 	}
 	else
-	{
 		argv++;
-		check_error(argv);
-		stacka.len = count_elem(argv);
-		stacka.cap = stacka.len;
-		generate_stack(&stacka, argv);
-		position(&stacka);
-	}
+	init_stack(&stacka, argv);
 	stackb.data = (t_info *)malloc(sizeof(t_info) * stacka.len);
-	init_struct(&stackb);
-	stackb.len = 0;
-	stackb.cap = stacka.len;
+	init_strhdr(&stackb, 0, stacka.len);
+	//   print_stack(stacka);
 	push_swap(stacka, stackb);
-	if (list)
-	{
-		for (int i = 0; list[i] != NULL; i++)
-		{
-			free(list[i]);
-		}
-		free(list);
-	}
-	free(stacka.data);
-	free(stackb.data);
-	exit(EXIT_FAILURE);
+	//    print_stack(stacka);
+	free_all(list, &stacka, &stackb);
+	return (0);
 }

@@ -49,7 +49,7 @@ void	generate_stack(t_strhdr *stack, char **argv)
 
 	i = 0;
 	stack->data = (t_info *)malloc(sizeof(t_info) * stack->len);
-	init_struct(stack);
+	init_info(stack);
 	if (!stack->data)
 		error_call();
 	while (i < stack->len)
