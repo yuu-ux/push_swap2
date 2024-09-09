@@ -51,9 +51,9 @@ void		sort_small(t_strhdr stacka, t_strhdr stackb);
 
 // utils
 void		init_info(t_strhdr *stack);
-void	init_strhdr(t_strhdr *stack, int len, int cap_size);
-void    init_stack(t_strhdr *stack, char **argv);
-void    free_all(char **list, t_strhdr *stacka, t_strhdr *stackb);
+void		init_strhdr(t_strhdr *stack, int len, int cap_size);
+void		init_stack(t_strhdr *stack, char **argv);
+void		free_all(char **list, t_strhdr *stacka, t_strhdr *stackb);
 
 // 座標圧縮
 void		ft_swap(int *x, int *y);
