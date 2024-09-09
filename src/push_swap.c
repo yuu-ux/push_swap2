@@ -6,20 +6,12 @@
 /*   By: yehara <yehara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:03 by yehara            #+#    #+#             */
-/*   Updated: 2024/09/09 18:56:41 by ebarayuug        ###   ########.fr       */
+/*   Updated: 2024/09/09 22:40:35 by ebarayuug        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h_push_swap.h"
 
-// デバッグ用
-void	print_stack(t_strhdr stack)
-{
-	for (int i = 0; i < stack.len; i++)
-	{
-		printf("%d\n", stack.data[i].elem);
-	}
-}
 void	error_call(void)
 {
 	write(2, "Error\n", 6);
@@ -54,7 +46,7 @@ void	check_error(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (0 > temp)
+			if (argv[i][j] == '-')
 				j++;
 			if (!(ft_isdigit(argv[i][j])))
 				error_call();
@@ -94,9 +86,7 @@ int	main(int argc, char **argv)
 	stackb.data = (t_info *)malloc(sizeof(t_info) * stacka.len);
 	init_strhdr(&stackb, 0, stacka.len);
 	init_info(&stackb);
-	// print_stack(stacka);
 	push_swap(stacka, stackb);
-	//print_stack(stacka);
 	free_all(list, &stacka, &stackb);
 	return (0);
 }
